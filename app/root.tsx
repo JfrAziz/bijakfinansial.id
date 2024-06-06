@@ -1,6 +1,8 @@
 import tailwind from "~/styles/globals.css?url"
+import { Button } from "./components/ui/button"
 import { LinksFunction } from "@remix-run/server-runtime"
 import {
+  Link,
   Links,
   Meta,
   Outlet,
@@ -22,7 +24,21 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <header className="w-full gap-8 border-b px-4 py-2">
+          <div className="container m-auto flex items-center justify-between">
+            <div>
+              <div className="font-bold text-xl">Bijak Finansial</div>
+            </div>
+            <div>
+              <Button size="sm" asChild>
+                <Link to="/try">Try It Now</Link>
+              </Button>
+            </div>
+          </div>
+        </header>
+        <main className="container m-auto py-2">
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>
